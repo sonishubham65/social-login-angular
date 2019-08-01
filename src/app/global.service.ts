@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GlobalService {
+
   public config = {
     
   };
@@ -11,5 +12,4 @@ export class GlobalService {
   constructor() { 
 
   }
-  
 }

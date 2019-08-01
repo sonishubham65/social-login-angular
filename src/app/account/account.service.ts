@@ -8,11 +8,8 @@ export class AccountService {
 
   constructor(private http:HttpClient) { 
   }
-  signUp(jwt,type){
-    return this.http.post("/api/account/register/",{
-      jwt:jwt,
-      type:type
-    });
+  signUp(_args){
+    return this.http.post("/api/account/register/",_args);
   }
   signIn(_args){
     return this.http.post("/api/account/login/",_args);

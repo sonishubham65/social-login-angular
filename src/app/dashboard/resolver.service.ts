@@ -9,7 +9,6 @@ export class Dashboard implements Resolve<any>{
   constructor(private dashboardService:DashboardService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
     return this.dashboardService.getProfile().subscribe((result)=>{
-      console.log(result,'-->')
       return result['data'];
     });
   }

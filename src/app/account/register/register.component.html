@@ -1,4 +1,38 @@
 <p>
   register works!
 </p>
+<form [formGroup]="form" (ngSubmit)="validate()">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="First name" formControlName="firstname">
+  </mat-form-field>
+  <mat-error *ngIf="firstname.hasError('required') && firstname.dirty">
+    First name is required.
+  </mat-error>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Last name" formControlName="lastname">
+  </mat-form-field>
+  <mat-error *ngIf="lastname.hasError('required') && lastname.dirty">
+    Last name is required.
+  </mat-error>
+
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Phone" formControlName="phone">
+  </mat-form-field>
+  <mat-error *ngIf="phone.hasError('required') && phone.dirty">
+    Phone is required.
+  </mat-error>
+
+  <a mat-button routerLink="." (click)="sendOTP()">Send OTP</a>
+  
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="OTP" formControlName="otp">
+  </mat-form-field>
+  <mat-error *ngIf="otp.hasError('required') && otp.dirty">
+    OTP is required.
+  </mat-error>
+  <button mat-raised-button color="warn" [disabled]="!confirmation">Submit</button>
+</form>
+<div id="recaptcha-container"></div>
 <app-social (token)="onToken($event)"></app-social>

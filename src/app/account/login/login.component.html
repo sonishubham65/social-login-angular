@@ -1,4 +1,22 @@
 <p>
   login works!
 </p>
+<form [formGroup]="form" (ngSubmit)="validate()">
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Phone" formControlName="phone">
+  </mat-form-field>
+  <mat-error *ngIf="phone.hasError('required') && phone.dirty">
+    Phone is required.
+  </mat-error>
+
+  
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Password" formControlName="password">
+  </mat-form-field>
+  <mat-error *ngIf="password.hasError('required') && password.dirty">
+    Password is required.
+  </mat-error>
+  <button mat-raised-button color="warn">Login</button>
+</form>
 <app-social (token)="onToken($event)"></app-social>

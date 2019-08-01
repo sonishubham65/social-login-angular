@@ -12,4 +12,11 @@ export class DashboardService {
       access_token:localStorage.getItem('access_token')
     });
   }
+  updatePassword(password,confirmPassword){
+    return this.http.post("/api/account/password/edit/",{
+      access_token:localStorage.getItem('access_token'),
+      password:password,
+      confirmPassword:confirmPassword,
+    });
+  }
 }
